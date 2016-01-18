@@ -1,0 +1,17 @@
+<table class="table table-striped" style="background: rgba(255,255,255,0.7);">
+  <thead>
+    <tr><th>Quality</th><th>Format/Codecs</th><th style="text-align: right;"></th></tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="video in videoTable.list">
+      <td>{{ video.quality }}</td>
+      <td>{{ video.type }}</td>
+      <td>
+        <a ng-if="video.type.indexOf('video/mp4') !== -1 || video.type.indexOf('video/webm') !== -1" class="btn btn-success pull-left btn-download" style="margin-right: 15px;" ng-click="$event.preventDefault();videoTable.show(video.url, video.quality);"><i class="glyphicon glyphicon-download-alt"></i>播放</a>
+
+        <a ng-if="video.type.indexOf('video/mp4') === -1 && video.type.indexOf('video/webm') === -1" ng-href="{{ video.url }}" class="btn btn-success pull-left btn-download" target="_blank" style="margin-right: 15px;" title="在打开的新窗口中按 `Ctr + S`，即可保存在本地"><i class="glyphicon glyphicon-download-alt"></i>下载</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

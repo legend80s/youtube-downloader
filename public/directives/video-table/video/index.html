@@ -1,0 +1,15 @@
+<style>
+  .modal-xl {
+    width: 100%;
+  }
+</style>
+<div class="modal-header">
+  <span class="modal-title">下载 - 鼠标放到视频上方，右键 `Save Video As...`</span>
+  <i class="glyphicon glyphicon-remove pull-right" style="cursor: pointer;" ng-click="$dismiss()"></i>
+</div>
+
+<div class="modal-body" style="text-align: center;">
+  <video controls autoplay>
+    <source ng-src="{{ video.src }}" type="video/webm">
+  </video>
+</div>
