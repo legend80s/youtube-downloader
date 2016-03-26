@@ -1,3 +1,5 @@
+'use strict';
+
 function VideosTableController(modal, sce) {
   this.modal = modal;
   this.sce = sce;
@@ -5,7 +7,8 @@ function VideosTableController(modal, sce) {
 
 VideosTableController.prototype.show = function (src, quality) {
   console.log('show', src);
-  sce = this.sce;
+  src = "./temp/yt.mp4";
+  const sce = this.sce;
 
   const size = VideosTableController.getSizeByQuality(quality);
 
@@ -16,7 +19,8 @@ VideosTableController.prototype.show = function (src, quality) {
     templateUrl: 'directives/video-table/video/index.html',
     size: size,
     controller: function() {
-      this.src = sce.trustAsResourceUrl(src);
+      // this.src = sce.trustAsResourceUrl(src);
+      this.src = src;
     },
     controllerAs: 'video',
   });

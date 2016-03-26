@@ -1,0 +1,15 @@
+<div class="well panel form-inline" novalidate="novalidate" ng-controller="Downloader as downloader">
+  <h4>YouTube Video URL like: </h4>
+  <input type="text" class="form-control" name="url" id="url" placeholder="www.youtube.com/watch?v=b6S5EJNtP30" style="width: 550px" ng-model="downloader.rawUrl">
+  
+  <button id="parse-btn" class="btn btn-large btn-primary btn-download" ng-click="downloader.parse(downloader.rawUrl);">
+    解析视频文件
+  </button>
+
+  <div style="margin-top: 25px;">
+    <div id="loading" class="loading" ng-show="downloader.parsing">正在解析，请稍等...</div>
+    <div id="vid">
+      <video-table list="downloader.videoInfo"></video-table>
+    </div>
+  </div>
+</div>
